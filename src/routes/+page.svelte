@@ -1,5 +1,10 @@
 <script lang="ts">
 	import CodeSnippetCard from '../components/code-snippet-card.svelte';
+	let formData: ICodeSnippetInput = {
+		title: '',
+		code: '',
+		language: 'HTML'
+	};
 </script>
 
 <div class="flex justify-center">
@@ -8,23 +13,33 @@
 		<div class="card p-4 w-full text-token space-y-4">
 			<label class="label">
 				<span>Snippet Title</span>
-				<input class="input" type="text" placeholder="Enter title here ..." />
+				<input
+					class="input"
+					type="text"
+					placeholder="Enter title here ..."
+					bind:value={formData.title}
+				/>
 			</label>
 
 			<label class="label">
 				<span>Programming Language</span>
-				<select class="select">
+				<select class="select" bind:value={formData.language}>
 					<option value="HTML">HTML</option>
-					<option value="CSS">HTML</option>
-					<option value="Typescript">HTML</option>
-					<option value="Javascript">HTML</option>
-					<option value="Rust">HTML</option>
+					<option value="CSS">CSS</option>
+					<option value="Typescript">Typescript</option>
+					<option value="Javascript">Javascript</option>
+					<option value="Rust">Rust</option>
 				</select>
 			</label>
 
 			<label class="label">
 				<span>Code Snippet</span>
-				<textarea class="textarea" placeholder="Enter Your Snippet here " rows="4" />
+				<textarea
+					class="textarea min-h-fit"
+					placeholder="Enter Your Snippet here "
+					rows="4"
+					bind:value={formData.code}
+				/>
 			</label>
 		</div>
 		<div class="text-center py-6">

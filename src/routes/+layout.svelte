@@ -6,6 +6,10 @@
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 	import { AppBar, AppShell, storeHighlightJs } from '@skeletonlabs/skeleton';
+
+	import hljs from 'highlight.js';
+	import 'highlight.js/styles/tokyo-night-dark.css';
+	storeHighlightJs.set(hljs);
 </script>
 
 <AppShell>
